@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+#  schedule:
+#    - cron: '5 5 * * *'
+
+jobs:
+  in_docker_compose:
+
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Build the stack
+      run: docker-compose up -d
+
+    - name: Test
+      run: |
+        docker ps
+        docker ps -a
+
+    - name: Stop the docker compose
+      run: docker-compose stop -t 0
