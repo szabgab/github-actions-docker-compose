@@ -5,5 +5,5 @@ def test_main():
 
     rv = web.get('/')
     assert rv.status == '200 OK'
-    assert rv.data.encode('utf-8') == 'main page'
+    assert rv.data.decode('utf-8') == 'main page'
 
