@@ -14,11 +14,15 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Build the stack
+    - name: Run docker-compose as a daemon
       run: docker-compose up -d
 
     - name: List docker containers
       run: docker ps -a
+
+    - name: Ping the services to show network connectivity
+      run: |
+        docker exec github-actions-docker-compose_web_1 ping -c 1 mymongo
 
     - name: Run Tests
       run: |
