@@ -15,8 +15,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v7
 
-    - name: Run docker-compose as a daemon
-      run: docker-compose up -d
+    - name: Run docker compose as a daemon
+      run: docker compose up -d
 
     - name: List docker containers
       run: docker ps -a
@@ -30,4 +30,4 @@ jobs:
         docker exec github-actions-docker-compose_web_1 pytest -svv
 
     - name: Stop the docker compose
-      run: docker-compose stop -t 0
+      run: docker compose stop -t 0
