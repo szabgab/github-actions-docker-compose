@@ -26,8 +26,6 @@ jobs:
         docker exec github-actions-docker-compose-web-1 ping -c 1 mymongo
 
     - name: Run Tests
-      env:
-          MONGODB_HOST: mongodb
       run: |
         docker exec github-actions-docker-compose-web-1 pytest -svv
 
