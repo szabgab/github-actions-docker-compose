@@ -23,11 +23,11 @@ jobs:
 
     - name: Ping the services to show network connectivity
       run: |
-        docker exec github-actions-docker-compose_web_1 ping -c 1 mymongo
+        docker exec github-actions-docker-compose-web-1 ping -c 1 mymongo
 
     - name: Run Tests
       run: |
-        docker exec github-actions-docker-compose_web_1 pytest -svv
+        docker exec github-actions-docker-compose-web-1 pytest -svv
 
     - name: Stop the docker compose
       run: docker compose stop -t 0
